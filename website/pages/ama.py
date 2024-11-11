@@ -32,7 +32,13 @@ def ama_page():
     )
 
     response_box = Div(
-        "Your question will appear here",
+        """
+        Ask My Assistant!
+        Your reply will appear here. Some example questions:
+        - When did Chris work at Airbnb?
+        - Does Christopher know SQL?
+        - Has he managed people?
+        """,
         id="response-box",
         Class="ama-response"
     )
