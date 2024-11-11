@@ -1,0 +1,72 @@
+[
+    {
+        "company": "Stitched Insights",
+        "title": "Advisor",
+        "start_date": "2022-03-01",
+        "end_date": "Present",
+        "description": "Advised on data science strategies for customer demographic forecasting using linguistic behavioral cohorts. Help with technical architecture and data science best practices. Assist with technical interviews and hiring."
+    },
+    {
+        "company": "Storytellers.ai",
+        "title": "Chief Scientist, Advisor, Co-Founder",
+        "start_date": "2020-05-01",
+        "end_date": "Present",
+        "description": "Led development of a machine learning platform that delivered production-ready models across various verticals. Assist in architectural design, and data science best practices."
+    },
+    {
+        "company": "Stealth Startup",
+        "title": "Advisor",
+        "start_date": "2023-09-01",
+        "end_date": "Present",
+        "description": "Assisted with AI integration and machine learning pipelines."
+    },
+    {
+        "company": "VideoAmp",
+        "title": "Director of Data Science and Engineering",
+        "start_date": "2021-09-01",
+        "end_date": "2023-09-01",
+        "description": "Led four teams of engineers and data scientists to support all VideoAmp products, with a focus on CI/CD systems and data pipelines."
+    },
+    {
+        "company": "OfferUp",
+        "title": "Director of Data Science and Engineering",
+        "start_date": "2019-06-01",
+        "end_date": "2021-09-01",
+        "description": "Led five teams (40+ people) responsible for critical infrastructure, real-time pipelines, fraud prevention, and data science initiatives."
+    },
+    {
+        "company": "D2iQ",
+        "title": "Head of Analytics",
+        "start_date": "2016-09-01",
+        "end_date": "2019-06-01",
+        "description": "Delivered business metrics and scalable analytic solutions, developed ML pipelines using Kubernetes and DCOS."
+    },
+    {
+        "company": "6sense",
+        "title": "Chief Data Scientist",
+        "start_date": "2015-07-01",
+        "end_date": "2016-09-01",
+        "description": "Hired and led the data science team, developed the platform to score hundreds of millions of records per day."
+    },
+    {
+        "company": "Payability",
+        "title": "Co-Founder, Chief Data Scientist",
+        "start_date": "2014-04-01",
+        "end_date": "2015-04-01",
+        "description": "Co-founded and led the development of the product's analytics platform."
+    },
+    {
+        "company": "Airbnb",
+        "title": "Manager, Analytics for User Online Experience",
+        "start_date": "2012-07-01",
+        "end_date": "2014-04-01",
+        "description": "Managed a team of product data scientists, developed fraud detection systems, and scaled models for high transaction volumes."
+    },
+    {
+        "company": "LinkedIn",
+        "title": "Principal Data Scientist",
+        "start_date": "2010-07-01",
+        "end_date": "2012-07-01",
+        "description": "Led the development of real-time bidding models, improved campaign testing by 8%, resulting in a $5M revenue improvement."
+    }
+]
