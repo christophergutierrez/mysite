@@ -7,9 +7,9 @@ app = create_app()
 
 if __name__ == "__main__":
     # Select port based on the ENV environment variable
-    env = os.environ.get('ENV', 'local')  # Default to 'local'
-    port = int(os.environ.get('DEPLOY_PORT', 8080)) if env == 'deploy' else int(os.environ.get('LOCAL_PORT', 5000))
-    host = "0.0.0.0" if env == 'deploy' else "127.0.0.1"
+    env = os.environ.get('ENV', 'DEV').upper()
+    port = int(os.environ.get('PROD_PORT', 8080)) if env == 'PROD' else int(os.environ.get('DEV_PORT', 5000))
+    host = "0.0.0.0"
     
     # Run with uvicorn directly
     run(
