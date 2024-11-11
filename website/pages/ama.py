@@ -1,7 +1,7 @@
 """AMA page for the personal website."""
 
 # pylint: disable=no-name-in-module
-from fasthtml.common import Div, Style, Script, Form, Input, Button
+from fasthtml.common import Div, Style, Script, Form, Input, Button, NotStr
 from website.utils.helpers import create_menu
 from website.config.assets import CUSTOM_CSS, CUSTOM_JS
 
@@ -32,13 +32,15 @@ def ama_page():
     )
 
     response_box = Div(
-        """
-        Ask My Assistant!<br>
-        Your reply will appear here. Some example questions:<br>
-        - When did Chris work at Airbnb?<br>
-        - Does Christopher know SQL?<br>
-        - Has he managed people?
-        """,
+        NotStr("""
+        <p>Ask My Assistant!</p>
+        <p>Your reply will appear here. Some example questions:</p>
+        <ul>
+            <li>When did Chris work at Airbnb?</li>
+            <li>Does Christopher know SQL?</li>
+            <li>Has he managed people?</li>
+        </ul>
+        """),
         id="response-box",
         Class="ama-response"
     )
