@@ -1,8 +1,10 @@
 """Utility functions for the website."""
 
-import markdown
+# pylint: disable=no-name-in-module
 from pathlib import Path  # Add this import
+import markdown
 from fasthtml.common import Div
+
 
 def create_menu(active_page):
     """Create the menu with the specified page marked as active."""
@@ -27,11 +29,12 @@ def create_menu(active_page):
 
     return Div(*menu_divs, Class="menu")
 
+
 def generate_from_markdown(file_path: str) -> str:
     """Convert markdown file content to HTML."""
     base_dir = Path(__file__).parent.parent  # Get the website package directory
     full_path = base_dir / "templates" / file_path
-    
+
     with open(full_path, "r", encoding="utf-8") as f:
         text = f.read()
     # Convert markdown text to HTML

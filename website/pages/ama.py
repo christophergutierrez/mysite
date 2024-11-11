@@ -1,8 +1,9 @@
 """AMA page for the personal website."""
 
+# pylint: disable=no-name-in-module
 from fasthtml.common import Div, Style, Script, Form, Input, Button
-from website.utils.helpers import create_menu  # Add this import
-from website.config.assets import CUSTOM_CSS, CUSTOM_JS  # And this one
+from website.utils.helpers import create_menu
+from website.config.assets import CUSTOM_CSS, CUSTOM_JS
 
 def ama_page():
     """

@@ -1,3 +1,9 @@
+"""Setup configuration for the personal website package.
+
+This module handles package metadata and dependencies for the FastHTML-based
+personal website featuring dynamic content and OpenAI integration.
+"""
+
 from setuptools import setup, find_packages
 
 setup(

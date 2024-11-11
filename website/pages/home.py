@@ -1,4 +1,5 @@
-# New code using imports
+"""Call home page markdown."""
+# pylint: disable=no-name-in-module
 from fasthtml.common import Div, Style, Script, NotStr
 from website.utils.helpers import create_menu, generate_from_markdown  # verify this import
 from website.config.assets import CUSTOM_CSS, CUSTOM_JS
