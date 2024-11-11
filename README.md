@@ -41,6 +41,9 @@ touch .env
 ```
 The file should contain the following environment variables:
 ```bash
+ENV=dev
+dev_port=5000
+prod_port=8080
 OPENAI_API_KEY=[your-api-key]
 OPENAI_ASSISTANT_ID=[your-assistant-id]
 ```
