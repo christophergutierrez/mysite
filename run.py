@@ -22,11 +22,12 @@ try:
     if __name__ == "__main__":
         import uvicorn
         
-        port = int(os.environ.get("PROD_PORT", 8080))
+        # Use settings port for consistency
+        port = settings["port"]
         logger.info(f"Starting server on port {port}")
         
         uvicorn.run(
-            "run:app",
+            app,  # Use the app directly instead of "run:app" string
             host="0.0.0.0",  # Ensure it's accessible publicly
             port=port,
             log_level="info"
