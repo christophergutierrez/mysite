@@ -22,8 +22,8 @@ try:
     if __name__ == "__main__":
         import uvicorn
         
-        # Use settings port for consistency
-        port = settings["port"]
+        # Use PORT environment variable if available (for Cloud deployments)
+        port = int(os.environ.get("PORT", settings["port"]))
         logger.info(f"Starting server on port {port}")
         
         uvicorn.run(

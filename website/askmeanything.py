@@ -12,9 +12,13 @@ def chat_with_assistant(user_message: str) -> Optional[List[str]]:
         # Get settings which includes Anthropic credentials
         settings = get_app_settings()
 
-        if not settings.anthropic_api_key:
-            print("Missing Anthropic API key in settings")
-            print(f"API Key exists: {bool(settings.anthropic_api_key)}")
+        # First try environment variable directly, then settings
+        api_key = os.environ.get("ANTHROPIC_API_KEY") or settings.anthropic_api_key
+        
+        if not api_key:
+            print("Missing Anthropic API key in settings and environment")
+            print(f"API Key from settings exists: {bool(settings.anthropic_api_key)}")
+            print(f"API Key from environment exists: {bool(os.environ.get('ANTHROPIC_API_KEY'))}")
             return None
 
         # Load work history for system context
@@ -39,7 +43,7 @@ def chat_with_assistant(user_message: str) -> Optional[List[str]]:
             f"Work History: {work_history_str}"
         )
 
-        client = Anthropic(api_key=settings.anthropic_api_key)
+        client = Anthropic(api_key=api_key)
 
         message = client.messages.create(
             model="claude-3-5-haiku-20241022",
