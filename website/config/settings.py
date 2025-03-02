@@ -31,8 +31,7 @@ class AppSettings:
 
     static_dir: Path
     template_dir: Path
-    openai_api_key: str
-    openai_assistant_id: str
+    anthropic_api_key: str
     debug: bool = True
 
 
@@ -47,7 +46,6 @@ def get_app_settings() -> AppSettings:
     return AppSettings(
         static_dir=base_dir / "static",
         template_dir=base_dir / "templates",
-        openai_api_key=os.environ["OPENAI_API_KEY"],  # Use os.environ directly
-        openai_assistant_id=os.environ["OPENAI_ASSISTANT_ID"],
+        anthropic_api_key=os.environ["ANTHROPIC_API_KEY"],  # Use os.environ directly
         debug=os.getenv("APP_ENV", "development") == "development",
     )

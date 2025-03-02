@@ -1,4 +1,5 @@
-"""Handler for AMA questions using OpenAI Assistant."""
+
+"""Handler for AMA questions using Anthropic Claude."""
 
 import json
 from website.askmeanything import chat_with_assistant  # Direct import
@@ -6,7 +7,7 @@ from starlette.responses import JSONResponse
 
 
 async def handle_question(request):
-    """Handle question by calling OpenAI Assistant"""
+    """Handle question by calling Claude API"""
     try:
         body = await request.body()
         data = json.loads(body)
@@ -15,7 +16,7 @@ async def handle_question(request):
         if not question:
             return JSONResponse({"response": "No question provided"})
 
-        # Call the function directly instead of using subprocess
+        # Call the function directly
         response = chat_with_assistant(question)
 
         if response:

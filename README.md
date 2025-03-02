@@ -1,6 +1,6 @@
 # Personal Website
 
-A FastHTML-based personal website featuring a dynamic experience timeline, blog redirects, and an AI-powered Ask Me Anything section using OpenAI's Assistant API.
+A FastHTML-based personal website featuring a dynamic experience timeline, blog redirects, and an AI-powered Ask Me Anything section using Anthropic's Claude 3.5 Haiku API.
 
 ## Features
 
@@ -13,7 +13,7 @@ A FastHTML-based personal website featuring a dynamic experience timeline, blog 
 ## Requirements
 
 - Python 3.8, 3.10, or 3.12
-- OpenAI API key and Assistant ID
+- Anthropic API key
 - Dependencies are managed through setup.py
 
 ## Installation
@@ -44,8 +44,7 @@ The file should contain the following environment variables:
 ENV=DEV
 DEV_PORT=5000
 PROD_PORT=8080
-OPENAI_API_KEY=[your-api-key]
-OPENAI_ASSISTANT_ID=[your-assistant-id]
+ANTHROPIC_API_KEY=[your-api-key]
 ```
 
 5. Run the website:

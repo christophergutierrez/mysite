@@ -1,7 +1,8 @@
+
 """Setup configuration for the personal website package.
 
 This module handles package metadata and dependencies for the FastHTML-based
-personal website featuring dynamic content and OpenAI integration.
+personal website featuring dynamic content and Anthropic Claude integration.
 """
 
 from setuptools import setup, find_packages
@@ -13,7 +14,7 @@ setup(
     install_requires=[
         "python-fasthtml",
         "markdown",
-        "openai",
+        "anthropic",
         "fastapi",
         "python-dotenv",
     ],
