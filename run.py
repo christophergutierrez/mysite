@@ -2,20 +2,35 @@
 """Run script for the website in both development and production environments."""
 
 import os
-from website.app import create_app
-from website.config.settings import get_app_settings
+import sys
+import logging
 
-settings = get_app_settings()
-app = create_app()
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
 
-if __name__ == "__main__":
-    import uvicorn
-    
-    port = int(os.environ.get("PROD_PORT", 8080))
-    
-    uvicorn.run(
-        "run:app",
-        host="0.0.0.0",  # Ensure it's accessible publicly
-        port=port,
-        log_level="info"
-    )
+try:
+    from website.app import create_app
+    from website.config.settings import get_app_settings
+
+    settings = get_app_settings()
+    app = create_app()
+
+    if __name__ == "__main__":
+        import uvicorn
+        
+        port = int(os.environ.get("PROD_PORT", 8080))
+        logger.info(f"Starting server on port {port}")
+        
+        uvicorn.run(
+            "run:app",
+            host="0.0.0.0",  # Ensure it's accessible publicly
+            port=port,
+            log_level="info"
+        )
+except Exception as e:
+    logger.error(f"Failed to start application: {e}")
+    sys.exit(1)
