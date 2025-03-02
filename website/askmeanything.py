@@ -17,11 +17,35 @@ def chat_with_assistant(user_message: str) -> Optional[List[str]]:
             print(f"API Key exists: {bool(settings.anthropic_api_key)}")
             return None
 
+        # Load work history for system context
+        import json
+        from pathlib import Path
+        BASE_DIR = Path(__file__).parent
+        with open(BASE_DIR / "data" / "work_history.json", "r", encoding="utf-8") as f:
+            work_history = json.load(f)
+        
+        # Format work history as string for system prompt
+        work_history_str = json.dumps(work_history, indent=2)
+        
+        # Create system prompt with work history
+        system_prompt = (
+            "Data about Chris Gutierrez's work history, skills, and experience are attached. "
+            "When asked questions, assume that the question relates to Chris at work. "
+            "If the question does not relate to Chris at work, then politely decline to answer.\n"
+            "When possible, provide an example that answers the question. "
+            "In the reply don't ask the questioner to look at a resume or other documentation, "
+            "just answer the question to the best of your ability. "
+            "You may provide work details and Chris's title information.\n\n"
+            f"Work History: {work_history_str}"
+        )
+
         client = Anthropic(api_key=settings.anthropic_api_key)
 
         message = client.messages.create(
             model="claude-3-5-haiku-20241022",
             max_tokens=1024,
+            temperature=0,
+            system=system_prompt,
             messages=[
                 {"role": "user", "content": user_message}
             ]
