@@ -17,6 +17,7 @@ setup(
         "anthropic",
         "fastapi",
         "python-dotenv",
+        "uvicorn",
     ],
     python_requires=">=3.8",
     classifiers=[

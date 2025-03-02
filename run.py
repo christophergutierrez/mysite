@@ -1,18 +1,21 @@
-"""Runner script for the website application."""
-import os
-from uvicorn import run
-from website.app import create_app
 
+"""Run script for the website in both development and production environments."""
+
+import os
+from website.app import create_app
+from website.config.settings import get_app_settings
+
+settings = get_app_settings()
 app = create_app()
 
 if __name__ == "__main__":
-    env = os.environ.get('ENV', 'DEV').upper()
-    port = int(os.environ.get('PORT', 8080 if env == 'PROD' else 5000))
-
-    # Run with uvicorn directly
-    run(
+    import uvicorn
+    
+    port = int(os.environ.get("PROD_PORT", 8080))
+    
+    uvicorn.run(
         "run:app",
-        host="0.0.0.0",
+        host="0.0.0.0",  # Ensure it's accessible publicly
         port=port,
-        reload=True
+        log_level="info"
     )
