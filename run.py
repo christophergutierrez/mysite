@@ -16,7 +16,11 @@ try:
     from website.app import create_app
     from website.config.settings import get_app_settings
 
+    # Get settings
     settings = get_app_settings()
+    
+    # Create the app
+    logger.info("Creating application")
     app = create_app()
 
     if __name__ == "__main__":
@@ -27,11 +31,14 @@ try:
         logger.info(f"Starting server on port {port}")
         
         uvicorn.run(
-            app,  # Use the app directly instead of "run:app" string
+            "website.app:create_app",  # Use string reference for better reload support
             host="0.0.0.0",  # Ensure it's accessible publicly
             port=port,
-            log_level="info"
+            log_level="info",
+            factory=True
         )
 except Exception as e:
     logger.error(f"Failed to start application: {e}")
+    import traceback
+    logger.error(traceback.format_exc())
     sys.exit(1)

@@ -1,5 +1,6 @@
 """Script to interact with Anthropic's Claude API."""
 
+import os
 import argparse
 from typing import Optional, List
 from anthropic import Anthropic
